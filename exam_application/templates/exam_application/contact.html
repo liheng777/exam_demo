@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block head %}
+	<title>{% trans "蓝鲸开发框架" %}</title>
+	{{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <style type="text/css">
+        #footer{
+            position: relative;
+            bottom: -40px;
+        }
+    </style>
+    <div class="king-layout1-main" style="width:100%; height: auto;">
+    <!-- header start -->
+    <div class="king-layout1-header" style=" background:#eee;">
+        <div class="king-header2 navbar navbar-blue">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:;" title="预警系统"><span class="shape shape1"></span><span
+                            class="shape shape2"></span><span class="shape shape3"></span><span
+                            class="shape shape4"></span><span class="txt">预警系统</span></a></div>
+                <div class="">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="active"><a href="index_home.html"><span>报表</span></a></li>
+                        <li><a href="alarm.html"><span>故障预警</span></a></li>
+                        <li><a href="key.html"><span>关键词</span></a></li>
+                        <li><a href="table3.html"><span>搜索</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i
+                                class="fa fa-cog"></i><span class="ml10">帮助文档</span><span class="caret-down"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">帮助文档1</a></li>
+                                <li><a href="javascript:;">帮助文档2</a></li>
+                                <li><a href="javascript:;">帮助文档3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <!-- content start -->
+    <div class="king-layout1-content container">
+        <section class="king-content-header king-info-header mb20 pb10 mt20">
+            <h1 class="pull-left">
+                数据查询
+            </h1>
+            <form class="form-inline king-search-form king-no-bg pull-right">
+
+                <div class="form-group">
+                    <label>时间选择：</label>
+                    <select class="product-select form-control" id="select_time" style="width:150px;" value="202101">
+                        <option value="202101">2021年1月</option>
+                        <option value="202102">2021年2月</option>
+                        <option value="202103">2021年3月</option>
+                        <option value="202104">2021年4月</option>
+                        <option value="202105">2021年5月</option>
+                        <option value="202106">2021年6月</option>
+                        <option value="202107">2021年7月</option>
+                        <option value="202108">2021年8月</option>
+                        <option value="202109">2021年9月</option>
+                        <option value="202110">2021年10月</option>
+                        <option value="202111">2021年11月</option>
+                        <option value="202112">2021年12月</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="king-btn king-info" id="searchButton">搜索</button>
+            </form>
+        </section>
+
+        <div class="row">
+
+            <div class="col-sm-12 chart-one" id="chartA">
+                <div class="king-block king-block-bordered">
+                    <div class="king-block-header  king-gray-light">
+                        <ul class="king-block-options">
+                            <li>
+                                <button type="button"><i class="fa fa-cog"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="king-block-title">按日期分组</h3>
+                    </div>
+                    <div id="chart2_demoA" style="height:500px;padding:10px;">
+                        <img src="https://magicbox.bk.tencent.com/static_api/v3/components/loading1/images/loading_2_24x24.gif">
+                        数据加载中,请稍后...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6 chart-one">
+                <div class="king-block king-block-bordered">
+                    <div class="king-block-header  king-gray-light">
+                        <ul class="king-block-options">
+                            <li>
+                                <button type="button"><i class="fa fa-cog"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="king-block-title f12">按短信发送渠道分组</h3>
+                    </div>
+                    <div id="chart2_demoB" style="height:500px;padding:10px;">
+                        <img src="https://magicbox.bk.tencent.com/static_api/v3/components/loading1/images/loading_2_24x24.gif">
+                        数据加载中,请稍后...
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 chart-one">
+                <div class="king-block king-block-bordered">
+                    <div class="king-block-header  king-gray-light">
+                        <ul class="king-block-options">
+                            <li>
+                                <button type="button"><i class="fa fa-cog"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="king-block-title f12">按用户分组</h3>
+                    </div>
+                    <div id="chart2_demoC" style="height:500px;padding:10px;">
+                        <img src="https://magicbox.bk.tencent.com/static_api/v3/components/loading1/images/loading_2_24x24.gif">
+                        数据加载中,请稍后...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- content end -->
+
+    <!-- footer start -->
+    <div class="king-layout1-footer">
+        <footer class="king-footer">
+            <p class="king-copyright">Copyright © 2012-2015 Tencent. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <!-- footer end -->
+</div>
+{% endblock %}
+
+{% block extra_block %}
+    <!--
+        这里放置子页面中附加内容，一般为js，注意子模版中的js如果使用到以上js库，必须放置在这里
+     -->
+    <script type="text/javascript">
+    $(function () {
+        var time = $('#select_time').val()
+        initEBarChart({
+            url: '{{ site_url }}get_supplier_name_charts',
+            data: {dataTime: time},
+            containerId: 'chart2_demoA'
+        });
+        initEHorBarChart({
+            url: '{{ site_url }}get_supplier_channel_charts',
+            dataType: 'json',
+            containerId: 'chart2_demoB'
+        });
+        initEHorBarChart({
+            url: '{{ site_url }}get_customer_name_charts',
+            dataType: 'json',
+            containerId: 'chart2_demoC'
+        });
+         $('#searchButton').click(function () {
+            time = $('#select_time').val()
+            initEBarChart({
+                url: '{{ site_url }}get_supplier_name_charts',
+                data: {dataTime: time},
+                containerId: 'chart2_demoA'
+            });
+        })
+    });
+
+    function createEBarChart(conf) {
+        var myChart = echarts.init(document.getElementById(conf.selector));
+        var legendData = [];//存放变量的name
+        for (var i = 0; i < conf.data.series.length; i++) {
+            legendData.push(conf.data.series[i].name);
+        }
+        myChart.setOption({
+            legend: {
+                y: 'bottom',
+                data: legendData
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter(params) {
+                    let data = params[0].series.data1[params[0].dataIndex]
+                    return data.date + '<br />总数量: ' + data.error_count
+
+                }
+            },
+            toolbox: {
+                show: false, // 显示工具箱
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            calculable: true,
+            yAxis: [
+                {
+                    type: 'value',
+                    splitArea: {show: true}
+                }
+            ],
+            xAxis: conf.data.xAxis,
+            series: conf.data.series
+        })
+    }
+
+    function initEBarChart(conf) {
+        $.ajax({
+            url: conf.url,
+            type: 'GET',
+            data: conf.data,
+            success: function (res) {
+                //获取数据成功
+                if (res.result) {
+                    createEBarChart({
+                        selector: conf.containerId, // 图表容器
+                        data: res.data, // 图表数据
+                    });
+                }
+            }
+        })
+    }
+
+    // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+    function createEHorBarChart(conf) {
+        var myChart = echarts.init(document.getElementById(conf.selector));
+        var legendData = [];
+        for (var i = 0; i < conf.data.series.length; i++) {
+            legendData.push(conf.data.series[i].name);
+        }
+        myChart.setOption({
+            title: conf.data.title,
+            tooltip: {
+                trigger: 'axis',
+                formatter(params) {
+                    let data = params[0].series.data1[params[0].dataIndex]
+                    return data.name + '<br />总数量: ' + data.total_count
+
+                }
+            },
+            legend: {
+                data: legendData
+            },
+            toolbox: {
+                show: false, // 显示工具箱
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'category',
+                    data: conf.data.yAxis
+                }
+            ],
+            series: conf.data.series
+        })
+    }
+
+    function initEHorBarChart(conf) {
+        $.ajax({
+            url: conf.url,
+            type: 'GET',
+            dataType: conf.dataType,
+            success: function (res) {
+                //获取数据成功
+                if (res.result) {
+                    createEHorBarChart({
+                        selector: conf.containerId, // 图表容器
+                        data: res.data, // 图表数据
+                    });
+                }
+            }
+        })
+    }
+</script>
+{% endblock %}
